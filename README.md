@@ -278,7 +278,7 @@ These include:
 ## File map
 
 ```text
-projects/agent-memory-public/
+agent-memory-public/
 ├── README.md
 ├── docs/
 │   ├── ARCHITECTURE.md
