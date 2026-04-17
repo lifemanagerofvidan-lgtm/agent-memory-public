@@ -1,0 +1,30 @@
+collections:
+  agent-memory:
+    path: /ABSOLUTE/PATH/TO/YOUR/VAULT/20_Agent-Memory
+    pattern: '**/*.md'
+    weight: 2.4
+
+  journal:
+    path: /ABSOLUTE/PATH/TO/YOUR/VAULT/10_Journal
+    pattern: '**/*.md'
+    weight: 0.8
+
+  index:
+    path: /ABSOLUTE/PATH/TO/YOUR/VAULT/30_Index
+    pattern: '**/*.md'
+    weight: 0.4
+
+  inbox:
+    path: /ABSOLUTE/PATH/TO/YOUR/VAULT/00_Inbox
+    pattern: '**/*.md'
+    weight: 0.2
+
+  archive:
+    path: /ABSOLUTE/PATH/TO/YOUR/VAULT/90_Archive
+    pattern: '**/*.md'
+    weight: 0.1
+
+search:
+  hybrid: true
+  rerank: true
+  limit: 10
