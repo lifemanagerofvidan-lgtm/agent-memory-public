@@ -55,6 +55,18 @@ Early rollout mode may be intentionally non-silent.
 Cron jobs may announce their status until the system has proven stable over time.
 Later, delivery can be reduced or disabled.
 
+## Delivery guidance
+
+For isolated cron jobs, prefer returning the script stdout verbatim rather than allowing the model to summarize the result.
+This reduces the chance of model-added interpretation that does not actually appear in the script output.
+
+## Validated live behavior
+
+The live system validated these points during stabilization:
+- Journal Extraction delivered correctly once the Discord delivery target used a channel target instead of the earlier failing target form in this environment.
+- QMD Refresh delivered correctly after the same delivery-target correction.
+- Verbose model-authored cron summaries can be misleading; verbatim stdout delivery is the safer default for low-ambiguity automation scripts.
+
 ## Future adjustments
 
 Possible later changes:

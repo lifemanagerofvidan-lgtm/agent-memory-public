@@ -89,6 +89,29 @@ Hash-only tracking makes it harder to understand which source file was processed
 - `scripts/journal_to_memory.py`
 - `state/extraction-state.json`
 
+## Extraction judgment rule
+
+Extraction must be based on the session as a whole, not local fragments.
+
+This means:
+- read the full Journal source first
+- prefer final settled conclusions over mid-discussion proposals
+- do not extract temporary framing, abandoned ideas, or fake conclusions that appeared only in the middle of the conversation
+- if later turns revise or contradict an earlier point, the earlier point should not be extracted
+- if no durable conclusion survives whole-session review, return `no_signal`
+- do not split one settled conclusion into multiple overlapping notes within the same session
+- when multiple possible notes substantially overlap, merge them into one stronger note instead
+
+## Current stable OpenClaw call pattern
+
+For this project's validated extraction path, the currently stable OpenClaw request pattern is:
+
+- endpoint: `/v1/responses`
+- `model: "openclaw"`
+- header: `x-openclaw-agent-id: main`
+- header: `x-openclaw-model: minimax/MiniMax-M2.7`
+- `input` as one plain string, not item-array structured input
+
 ## v1 scope
 
 This first implementation focuses on:

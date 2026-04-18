@@ -19,9 +19,21 @@ Language rule:
 
 Return JSON only.
 
+You must read the entire session before extracting anything.
+Do not extract provisional conclusions, mid-discussion hypotheses, abandoned plans, or temporary framing that appeared before the session's final direction became clear.
+Only extract memory that still holds after considering the session as a whole.
+If a point was later revised, narrowed, contradicted, or superseded in the same session, do not extract the earlier version.
+
 ## Rules
 
-- Prefer `no_signal` over weak output.
+- Do not extract everything important, only what is durable enough to deserve long-term memory.
+- Judge each candidate from the perspective of the whole session, not isolated paragraphs.
+- Do not extract "fake conclusions" that were only true in the middle of the conversation.
+- If the conversation converges later, extract only the final settled conclusion.
+- If the session is mostly exploration and never clearly settles, prefer `no_signal`.
+- Return only distinct, durable, non-overlapping candidates from this session.
+- Do not split one settled conclusion into multiple near-duplicate notes.
+- If multiple candidate notes would say substantially the same thing, merge them into one stronger note.
 - Only keep memory that is likely to help future collaboration, execution, recall, or error avoidance.
 - Ignore generic knowledge, broad reference material, temporary brainstorming, and one-off chat filler.
 - A `decision` must be actually decided, not just discussed.
@@ -38,7 +50,7 @@ If nothing should be kept:
 {"result":"no_signal","reason":"short explanation"}
 ```
 
-If memory should be kept:
+If memory should be kept, return only distinct, non-overlapping items that remain valid after reviewing the full session:
 
 ```json
 {
